@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private Animator animator;
     private Transform myTransform;
     private Vector2 axisMove;
+    private Vector2 axis;
     [SerializeField] private LayerMask studentLayer;
     private bool studentTouched;
     private bool helping;
@@ -46,12 +47,37 @@ public class PlayerMove : MonoBehaviour
     private void Move()
     {
         axisMove.x = Input.GetAxis("Horizontal");
+
         axisMove.y = Input.GetAxis("Vertical");
+
+        MoveHorizontal();
+        MoveVertical();
 
         animator.SetFloat("X", axisMove.x);
         animator.SetFloat("Y", axisMove.y);
 
-        myTransform.Translate(axisMove * speed * Time.deltaTime);
+        myTransform.Translate(axis * Time.deltaTime);
+    }
+
+    void MoveHorizontal()
+    {
+        if (myTransform.position.x >= 8f && axisMove.x > 0 || myTransform.position.x < -8f && axisMove.x < 0)
+        {
+            axis.x = 0;
+            return;
+        }
+
+        axis.x = axisMove.x * speed;
+    }
+    void MoveVertical()
+    {
+        if (myTransform.position.y >= 4.5f && axisMove.y > 0 || myTransform.position.y < -4.5f && axisMove.y < 0)
+        {
+            axis.y = 0;
+            return;
+        }
+
+        axis.y = axisMove.y * speed;
     }
 
     private void FixedUpdate()
