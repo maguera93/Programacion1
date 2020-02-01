@@ -21,6 +21,7 @@ public class HUD : MonoBehaviour
     private void Start()
     {
         OnScoreChange();
+        FadeIn();
     }
 
     public void OnScoreChange()

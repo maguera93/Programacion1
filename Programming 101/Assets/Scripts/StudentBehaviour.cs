@@ -23,6 +23,8 @@ public class StudentBehaviour : MonoBehaviour
     [SerializeField] private GameEvent timeOverEvent;
     [SerializeField] private IntVariable global;
     [SerializeField] private IntVariable lifes;
+    [SerializeField] private AudioManager audioPlayer;
+    [SerializeField] private Animator animator;
     private bool needHelp;
     public bool NeedHelp
     {
@@ -39,6 +41,8 @@ public class StudentBehaviour : MonoBehaviour
         containerTransform.DOScale(1f, 0.5f).SetEase(Ease.OutBounce);
         canvasGroup.DOFade(0.5f, 0.3f).SetEase(Ease.OutCubic);
         timmer = 10f;
+        audioPlayer.PlayAudio(0, 0.5f, Random.Range(1.2f, 1.5f));
+        animator.SetBool("NeedHelp", true);
 
         studentCollider.enabled = true;
         screamText.text = helpText;
@@ -78,6 +82,7 @@ public class StudentBehaviour : MonoBehaviour
         sequence.Pause();
         problemSolvedEvent.Raise();
         global.RuntimeValue += score;
+        audioPlayer.PlayAudio(1, 1f, 1f);
     }
 
     private void TimeOver()
@@ -85,6 +90,7 @@ public class StudentBehaviour : MonoBehaviour
         ClosePopup();
         timmerText.text = string.Empty;
         lifes.RuntimeValue--;
+        audioPlayer.PlayAudio(2, 1f, Random.Range(1.2f, 1.5f));
         timeOverEvent.Raise();
     }
 
@@ -94,5 +100,7 @@ public class StudentBehaviour : MonoBehaviour
         canvasGroup.DOFade(0, 0.5f).SetEase(Ease.OutCubic);
         studentCollider.enabled = false;
         needHelp = false;
+        animator.SetBool("NeedHelp", false);
+
     }
 }
