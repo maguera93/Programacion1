@@ -8,6 +8,7 @@ public class StudentBehaviour : MonoBehaviour
 {
     public Text screamText;
     public Text timmerText;
+    public Text scoreText;
     public Image problemBar;
     public RectTransform containerTransform;
     public CanvasGroup canvasGroup;
@@ -41,7 +42,7 @@ public class StudentBehaviour : MonoBehaviour
         containerTransform.DOScale(1f, 0.5f).SetEase(Ease.OutBounce);
         canvasGroup.DOFade(0.5f, 0.3f).SetEase(Ease.OutCubic);
         timmer = 10f;
-        audioPlayer.PlayAudio(0, 0.5f, Random.Range(1.2f, 1.5f));
+        audioPlayer.PlayAudio(0, 0.2f, Random.Range(1.2f, 1.5f));
         animator.SetBool("NeedHelp", true);
 
         studentCollider.enabled = true;
@@ -68,6 +69,8 @@ public class StudentBehaviour : MonoBehaviour
     {
         problemPoints -= (float)resolvePoints;
         problemBar.fillAmount = 1f - problemPoints / startProblemPoints;
+        audioPlayer.PlayAudio(3, 0.1f, Random.Range(0.8f, 1.2f));
+        sequence.Pause();
 
         if (problemPoints <= 0)
         {
@@ -77,12 +80,12 @@ public class StudentBehaviour : MonoBehaviour
 
     private void ProblemSolved()
     {
-        ClosePopup();
         studentCollider.enabled = false;
-        sequence.Pause();
-        problemSolvedEvent.Raise();
+        
         global.RuntimeValue += score;
-        audioPlayer.PlayAudio(1, 1f, 1f);
+        audioPlayer.PlayAudio(1, 0.5f, 1f);
+        ScoreTextAnimaion();
+        problemSolvedEvent.Raise();
     }
 
     private void TimeOver()
@@ -90,7 +93,7 @@ public class StudentBehaviour : MonoBehaviour
         ClosePopup();
         timmerText.text = string.Empty;
         lifes.RuntimeValue--;
-        audioPlayer.PlayAudio(2, 1f, Random.Range(1.2f, 1.5f));
+        audioPlayer.PlayAudio(2, 0.5f, Random.Range(1.2f, 1.5f));
         timeOverEvent.Raise();
     }
 
@@ -101,6 +104,19 @@ public class StudentBehaviour : MonoBehaviour
         studentCollider.enabled = false;
         needHelp = false;
         animator.SetBool("NeedHelp", false);
+    }
 
+    private void ScoreTextAnimaion()
+    {
+        scoreText.gameObject.SetActive(true);
+        scoreText.text = string.Concat("+", score.ToString());
+        scoreText.rectTransform.DOAnchorPosY(-0.5F, 0);
+        scoreText.DOFade(1, 0.2f).SetEase(Ease.InCirc);
+        scoreText.DOFade(0, 0.2f).SetEase(Ease.InCirc).SetDelay(0.4f);
+        scoreText.rectTransform.DOAnchorPosY(0.5F, 0.5F).SetEase(Ease.InOutCubic).OnComplete(() =>
+        {
+            scoreText.gameObject.SetActive(false);
+            ClosePopup();
+        });
     }
 }

@@ -13,6 +13,7 @@ public class HUD : MonoBehaviour
     [Header("Lives")]
     [SerializeField] private IntVariable lifesValue;
     [SerializeField] private Image[] lifesImage;
+    [SerializeField] private Image hurtImage;
     [SerializeField] private Sprite emptyHeart;
     [SerializeField] private Sprite fullHeart;
     [Header("Load")]
@@ -21,6 +22,7 @@ public class HUD : MonoBehaviour
     private void Start()
     {
         OnScoreChange();
+        scoreValue.RuntimeValue = scoreValue.InitialValue;
         FadeIn();
     }
 
@@ -45,6 +47,8 @@ public class HUD : MonoBehaviour
         {
             FadeOut();
         }
+
+        HurtFade();
     }
 
     private void FadeIn()
@@ -55,5 +59,12 @@ public class HUD : MonoBehaviour
     private void FadeOut()
     {
         loadImage.DOFade(0, 0.5f).OnComplete(() => SceneManager.LoadScene("GameOver"));
+    }
+
+    private void HurtFade()
+    {
+        hurtImage.gameObject.SetActive(true);
+        hurtImage.DOFade(0.8f, 0.1f).SetEase(Ease.OutExpo);
+        hurtImage.DOFade(0, 0.1f).SetEase(Ease.InExpo).SetDelay(0.1f).OnComplete(() => hurtImage.gameObject.SetActive(false));
     }
 }

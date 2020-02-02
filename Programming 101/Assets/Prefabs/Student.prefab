@@ -47,6 +47,84 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b7bb804d5c360634faa5775e156cf585, type: 3}
   - {fileID: 8300000, guid: 8e110d2861cd6ad4080b1946e75eab7b, type: 3}
   - {fileID: 8300000, guid: 995ce8f1c59890a4396eb26018e52acb, type: 3}
+  - {fileID: 8300000, guid: 2a7cfd706b2cec847869df77661672d5, type: 3}
+--- !u!1 &2782824915796550335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3512838964090245041}
+  - component: {fileID: 6748785300010478697}
+  - component: {fileID: 8688554602257303364}
+  m_Layer: 5
+  m_Name: ScoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3512838964090245041
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782824915796550335}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8592554862422761787}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.07, y: -0.43}
+  m_SizeDelta: {x: 132.92012, y: 26.532593}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6748785300010478697
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782824915796550335}
+  m_CullTransparentMesh: 0
+--- !u!114 &8688554602257303364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782824915796550335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 435dafc07d37db348a5b0e998767c5df, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 4
+    m_MaxSize: 13
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 2
+  m_Text: 300
 --- !u!1 &6244443007113361369
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,7 +137,7 @@ GameObject:
   - component: {fileID: 7595706647480826680}
   - component: {fileID: 178361602021420516}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: TimeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5155,12 +5233,12 @@ RectTransform:
   - {fileID: 8592554862478098737}
   - {fileID: 8592554862447022300}
   m_Father: {fileID: 8592554862422761787}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.098, y: 0}
-  m_SizeDelta: {x: 2.955, y: 0.718}
+  m_AnchoredPosition: {x: -0.098, y: -0.0612}
+  m_SizeDelta: {x: 2.955, y: 1.1262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8592554862126004933
 CanvasRenderer:
@@ -5183,12 +5261,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 23a47558d7e050346bd00aefb513b22a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 683226ebffc127b45a0cf4e337fe56ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5363,6 +5441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screamText: {fileID: 8592554862447022291}
   timmerText: {fileID: 178361602021420516}
+  scoreText: {fileID: 8688554602257303364}
   problemBar: {fileID: 8592554862478098736}
   containerTransform: {fileID: 8592554862126004935}
   canvasGroup: {fileID: 7049145512103817280}
@@ -5426,6 +5505,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7852697588631093357}
+  - {fileID: 3512838964090245041}
   - {fileID: 8592554862126004935}
   m_Father: {fileID: 8592554862239452163}
   m_RootOrder: 0
@@ -5529,8 +5609,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -0.022, y: 0.32}
-  m_SizeDelta: {x: 138.284, y: 32}
+  m_AnchoredPosition: {x: 0.0166, y: 0.6564}
+  m_SizeDelta: {x: 129.9651, y: 26.5326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8592554862447022290
 CanvasRenderer:
@@ -5563,7 +5643,7 @@ MonoBehaviour:
     m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 8
+    m_MinSize: 4
     m_MaxSize: 13
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5571,7 +5651,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: en mi casa iba bien
+  m_Text: donde esta el punto y coma
 --- !u!1 &8592554862478098738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5606,8 +5686,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.0011, y: 0.0923}
+  m_SizeDelta: {x: -0.1949, y: -0.5337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8592554862478098743
 CanvasRenderer:
@@ -5630,7 +5710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.34386304, g: 0.990566, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

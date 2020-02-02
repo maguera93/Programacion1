@@ -46,7 +46,7 @@ public class StudentManager : MonoBehaviour
                 s = Random.Range(0, students.Length);
             }
 
-            students[s].SendHelp(messages[Random.Range(0, messages.Length)], Random.Range(5, 20));
+            students[s].SendHelp(messages[Random.Range(0, messages.Length)], Random.Range(10, 25));
 
             yield return new WaitForSeconds(activateStudentTime);
         }
